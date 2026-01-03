@@ -1,0 +1,237 @@
+/* COMPONENTS RESPONSIVENESS: Adjusts different sections of the app components for different devices */
+
+/* ****************************SCREENS THAT CAN HOVER*************************** */
+
+@media (hover: hover) {
+
+    /* Play/Pause Btns */
+    .CarD:hover .cardPlaY {
+        bottom: 5%;
+        opacity: 1;
+    }
+
+    .cardPlaY:hover {
+        transform: scale(1.03);
+        animation: boxGlow 4s ease-in-out infinite alternate;
+    }
+
+    /* Card Slider Btns */
+    .cardConT>main:hover .prevBtN,
+    .cardConT>main:hover .nextBtN {
+        opacity: 1;
+        transition: background-color 0.2s ease;
+    }
+
+    .prevBtN:hover,
+    .nextBtN:hover {
+        background-color: var(--color-card-hover);
+    }
+
+    /* Play Bar */
+    #play-bar:hover {
+        background-color: #00000068;
+    }
+
+    /* Play Bar Btns */
+    .playBtnS>*:hover {
+        transform: scale(1.08);
+    }
+
+    /* Btns: Play Next, Play Prev, forward, reverse */
+    #play-next:hover,
+    #play-prev:hover {
+        text-shadow: 0px 0px 15px orchid;
+    }
+
+    #forward:hover,
+    #reverse:hover {
+        text-shadow: 0px 0px 15px skyblue;
+    }
+}
+
+/* **************************SCREENS THAT CAN'T HOVER*************************** */
+
+@media (hover: none) {
+
+    /* Play/Pause Btns */
+    .CarD.active .cardPlaY {
+        bottom: 5%;
+        opacity: 1;
+    }
+
+    .CarD.active .cardPlaY {
+        transform: scale(1.03);
+        animation: boxGlow 4s ease-in-out infinite alternate;
+    }
+
+    /* Card Slider Btns */
+    .cardConT.active .prevBtN,
+    .cardConT.active .nextBtN {
+        opacity: 1;
+    }
+
+    .cardConT .prevBtN.active,
+    .cardConT .nextBtN.active {
+        opacity: 1;
+        background-color: var(--color-card-hover);
+    }
+
+    /* Play Bar */
+    #play-bar.active {
+        background-color: #00000068;
+    }
+}
+
+/* **************************BIG MONITORS/PCs/LAPTOPS*************************** */
+
+/* HAMBURGER: */
+/* Show/Hide: Library */
+body:has(#hamburger:checked) #library {
+    width: 0;
+    opacity: 0 !important;
+    pointer-events: none;
+    transition: width 0.6s ease, opacity 0.2s ease !important;
+}
+
+/* Show/Hide: Full Melody */
+body:has(#hamburger:checked) #color-shift,
+body:has(#hamburger:checked) #melody {
+    width: 99.25vw;
+}
+
+/* *********************************HD MONITORS********************************* */
+
+@media (max-width: 1280px) {
+
+    /* Play/Pause Btns */
+    .cardPlaY {
+        width: 4vw;
+        height: 4vw;
+    }
+
+    /* Melody Song Cards */
+    .CarD {
+        min-width: 9.75vw;
+        max-width: 9.75vw;
+    }
+
+    .CarD>figure>img {
+        height: 9.75vw;
+    }
+}
+
+/* ***********************TABLETS & SMALL LAPTOPS/MOBILE************************ */
+
+@media (max-width: 1024px) {
+
+    /* HAMBURGER: */
+    /* Hide Library */
+    #library {
+        position: absolute;
+        width: 40vw;
+        z-index: 2;
+        left: -0.25vw;
+    }
+
+    /* Show Library */
+    body:has(#hamburger:checked) #library {
+        transform: scaleX(25.25vw);
+    }
+
+    /* Melody Section */
+    #melody,
+    #color-shift {
+        width: 99.5vw;
+    }
+
+    /* Melody Song Cards */
+    .CarD {
+        min-width: 12vw;
+        max-width: 12vw;
+    }
+
+    .CarD>figure>img {
+        height: 12vw;
+    }
+
+    /* Play/Pause Btns */
+    .cardPlaY {
+        width: 6vmin;
+        height: 6vmin;
+    }
+}
+
+/* **********************TABLET PORTRAIT/MOBILE SCREENS************************* */
+
+@media (max-width: 768px) {
+
+    /* Library Section */
+    #library {
+        width: 80vw;
+    }
+
+    /* Melody Song Cards */
+    .CarD {
+        min-width: 20vw;
+        max-width: 20vw;
+    }
+
+    .CarD>figure>img {
+        height: 20vw;
+    }
+
+    #play-bar {
+        min-width: 60vw;
+    }
+}
+
+/* PLAY BAR */
+@media (max-width: 535px) {
+
+    /* Melody Song Cards */
+    .CarD {
+        min-width: 26vw;
+        max-width: 26vw;
+    }
+
+    .CarD>figure>img {
+        height: 26vw;
+    }
+
+    /* Play Bar */
+    body>footer {
+        bottom: 130px;
+    }
+
+    #play-bar {
+        flex-direction: column;
+        min-width: 65vw;
+        max-height: 239px;
+    }
+
+    #song-cover {
+        max-width: 200px;
+        height: 60px;
+    }
+
+    /* Preview Bar */
+    #preview-bar {
+        margin: auto;
+    }
+
+    /* Play Bar Btns */
+    #vol>input {
+        position: inherit;
+        max-width: 12vh;
+    }
+
+    .playBtnS>* {
+        font-size: x-large;
+    }
+
+    /* Play/Pause Btns */
+    .cardPlaY {
+        width: 40px;
+        height: 40px;
+    }
+}

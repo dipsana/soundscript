@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- ========================= -->
+    <!-- Basic -->
+    <!-- ========================= -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SoundScript — High-Performance Web Music Player</title>
+
+    <!-- ========================= -->
+    <!-- Favicon -->
+    <!-- ========================= -->
+    <link rel="icon" href="/soundscript/assets/favicon.png" type="image/png">
+
+    <!-- ========================= -->
+    <!-- Global Styles -->
+    <!-- ========================= -->
+    <link rel="stylesheet" href="/soundscript/css/base.css">
+    <link rel="stylesheet" href="/soundscript/css/animations.css">
+    <link rel="stylesheet" href="/soundscript/css/components.css">
+    <link rel="stylesheet" href="/soundscript/css/utilities.css">
+    <link rel="stylesheet" href="/soundscript/css/comp-resp.css">
+    <link rel="stylesheet" href="/soundscript/css/utils-resp.css">
+
+    <!-- ========================= -->
+    <!-- SEO -->
+    <!-- ========================= -->
+    <meta name="description"
+        content="SoundScript is a high-performance, modular modern modular web music player featuring dynamic UI, event-driven architecture, and real-time audio controls built with vanilla HTML, CSS, and JavaScript.">
+    <meta name="keywords"
+        content="SoundScript, Modern Modular Web Music Player, Vanilla JavaScript, Audio API, Responsive Music App">
+    <meta name="author" content="Dipsana Roy">
+
+    <!-- ========================= -->
+    <!-- Theme Color (Mobile Browser UI) -->
+    <!-- ========================= -->
+    <meta name="theme-color" content="#0a0a0a">
+
+    <!-- ========================= -->
+    <!-- Open Graph (Facebook, WhatsApp, LinkedIn) -->
+    <!-- ========================= -->
+    <meta property="og:title" content="SoundScript — High-Performance Web Music Player">
+    <meta property="og:description"
+        content="A modular, event-driven modern modular web music player built with vanilla HTML, CSS, and JavaScript.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="/soundscript//assets/preview.png">
+    <meta property="og:url" content="https://dipsana.github.io/soundscript/">
+
+    <!-- ========================= -->
+    <!-- Twitter -->
+    <!-- ========================= -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="SoundScript — High-Performance Web Music Player">
+    <meta name="twitter:description"
+        content="A modular, event-driven modern modular web music player built with vanilla HTML, CSS, and JavaScript.">
+    <meta name="twitter:image" content="/soundscript//assets/preview.png">
+</head>
+
+<body>
+    <header id="header">
+        <nav>
+            <ul>
+                <li class="flex col-gap-2 items-center">
+                    <input type="checkbox" id="hamburger" style="display: none;">
+                    <label id="hamburger-label" class="icon fade" title="Show Library" aria-label="Show Library"
+                        for="hamburger">☰</label>
+                    <h1 id="logo" title="Go to Home" aria-label="Go to Home">🎧SoundScript</h1>
+                </li>
+                <li class="flex content-center items-center col-gap-2" style="width: 70vw;">
+                    <div id="home-btn" class="icon-btn fade" title="Go to homepage" aria-label="Home">🏠</div>
+                    <label id="search-btn" for="search-bar" class="icon"
+                        title="Want to search? Click me and start typing..." aria-label="Search">🔍</label>
+                    <input id="search-bar" type="text" title="Partially Developed"
+                        placeholder='⚡ Search songs by title &gt;"&lt;'>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main class="flex">
+        <section class="rounded overflow" id="library">
+            <header>
+                <div class="flex items-center space-between">
+                    <h2 style="font-size: large;" class="flex items-center col-gap-3">📚 Your Library</h2>
+                    <div class="flex items-center">
+                        <img src="assets/icons/plus-btn.svg" class="plus-btn" title="In development"
+                            aria-label="Create Custom Playlist">
+                        <label for="hamburger" class="icon-btn" title="Hide Library"
+                            aria-label="Hide Library">⬅️</label>
+                    </div>
+                </div>
+                <div class="ctaBoX">
+                    <h3>Create your custom playlists</h3>
+                    <p>But beware it'll vanish if you clear browser cache 😹</p>
+                    <button title="In development">Create Playlist</button>
+                </div>
+                <div class="ctaBoX">
+                    <h3>Let's listen to some songs</h3>
+                    <p>We'll not play any trending songs 😎</p>
+                    <button id="browse-songs">Browse Songs</button>
+                </div>
+                <nav id="tiles-nav">
+                    <a class="bold" href="#active-tile">Go to Active Song</a>
+                    <div id="replay-song" class="icon-btn" title="Replay Current Song" aria-label="Replay Current Song">
+                        🔄️</div>
+                    <button id="play-all">Play All Songs</button>
+                </nav>
+            </header>
+            <footer>
+                <div class="ClickablE p-5">
+                    <a href="#">Legal</a>
+                    <a href="#">Safety & Privacy Center</a>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Cookies</a>
+                    <a href="#">About Ads</a>
+                    <a href="#">Accessibility</a>
+                </div>
+                <button class="langBtN" onclick="alert('Use Google Translate my beloved bro 😉')">English</button>
+            </footer>
+        </section>
+        <section id="color-shift">
+            <section class="overflow rounded" id="melody">
+                <main></main>
+                <div class="separator"></div>
+                <header>
+                    <nav>
+                        <h3>Lorem</h3>
+                        <a href="#">lorem</a>
+                        <a href="#">lorem</a>
+                        <a href="#">lorem</a>
+                        <a href="#">lorem</a>
+                    </nav>
+                    <nav>
+                        <h3>Ipsum</h3>
+                        <a href="#">ipsum</a>
+                        <a href="#">ipsum</a>
+                        <a href="#">ipsum</a>
+                        <a href="#">ipsum</a>
+                    </nav>
+                    <nav>
+                        <h3>Dolor sit</h3>
+                        <a href="#">dolor sit</a>
+                        <a href="#">dolor</a>
+                        <a href="#">sit</a>
+                        <a href="#">dolor Sit</a>
+                    </nav>
+                    <nav>
+                        <h3>Amet consectetur</h3>
+                        <a href="#">amet</a>
+                        <a href="#">consectetur</a>
+                        <a href="#">consectetur</a>
+                        <a href="#">amet</a>
+                    </nav>
+                    <aside class="socialLinkS">
+                        <a href="https://github.com/dipsana" target="_blank" title="My GitHub Profile"
+                            aria-label="My GitHub Profile"><img src="assets/icons/github.svg" alt="github-logo"></a>
+                        <a href="https://linkedin.com/in/dipsana" target="_blank" title="My LinkedIn"
+                            aria-label="My LinkedIn"><img src="assets/icons/linked-in.svg" alt="linkedin-logo"></a>
+                        <a href="https://dipsana.github.io/portfolio/" target="_blank" title="My Portfolio"
+                            aria-label="My Portfolio"><img src="assets/icons/portfolio.webp" alt="portfolio"></a>
+                    </aside>
+                </header>
+                <div class="separator"></div>
+                <footer>&copy; 2025 Dipsana Roy || All rights reserved</footer>
+            </section>
+        </section>
+    </main>
+    <footer>
+        <section id="play-bar" class="flex col-gap-2">
+            <div id="preview-bar">
+                <figure id="song-cover" class="flex-col items-center" title="Replay Current Song"
+                    aria-label="Replay Current Song" alt="Song Cover">
+                    <div id="replay-curr" title="Replay?" aria-label="Replay Current Song">🔄️</div>
+                </figure>
+                <figcaption class="playBtnS">
+                    <div id="like" title="Like" aria-label="Like">
+                        <div class="counter"></div>👍
+                    </div>
+                    <div id="dislike" title="Dislike" aria-label="Dislike">
+                        <div class="counter"></div>👎
+                    </div>
+                    <div id="vol" title="Volume is at 100%" aria-label="Volume is at 100%">
+                        <span>🔊</span>
+                        <input class="pointer" type="range" min="0" max="1" value="1" step="0.01">
+                    </div>
+                </figcaption>
+            </div>
+            <figcaption id="control-bar" class="flex-col col-gap-2">
+                <h2 id="song-title" class="cursor-def"></h2>
+                <h3 id="song-artist" class="cursor-def"></h3>
+                <div id="base-bar" class="fade">
+                    <div id="seek-bar">
+                        <div id="bar-seeker"></div>
+                    </div>
+                </div>
+                <div id="song-details" class="fade flex space-between">
+                    <h3 class="now"></h3>
+                    <h3 class="likes flex">
+                        <span class="counter"></span>
+                        <span class="heart">💚</span>
+                    </h3>
+                    <h3 class="dislikes flex">
+                        <span class="counter"></span>
+                        <span class="heart">💔</span>
+                    </h3>
+                    <h3 class="end"></h3>
+                </div>
+                <div class="fade flex playBtnS">
+                    <div id="reverse" title="-10s" aria-label="-10s">⏪</div>
+                    <div id="play-prev" title="Play Previous Song" aria-label="Play Previous Song">⏮</div>
+                    <div id="play-curr" title="Play Current Song" aria-label="Play Current Song"></div>
+                    <div id="play-next" title="Play Next Song" aria-label="Play Next Song">⏭</div>
+                    <div id="forward" title="+10s" aria-label="+10s">⏩</div>
+                </div>
+            </figcaption>
+        </section>
+        <div id="toggle-bar" title="Switch to Mini Bar?" aria-label="Switch to Mini Bar?">&#10094;</div>
+    </footer>
+    <script type="module" src="/soundscript/js/init.js"></script>
+    <script type="module" src="/soundscript/js/music-manager.js"></script>
+    <script type="module" src="/soundscript/js/gen-main.js"></script>
+    <script type="module" src="/soundscript/js/card-slider.js"></script>
+    <script type="module" src="/soundscript/js/nav.js"></script>
+    <script type="module" src="/soundscript/js/search-bar.js"></script>
+</body>
+
+</html>
+
+
+
+
+
