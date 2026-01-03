@@ -2,6 +2,10 @@
 
 import { showRetryBtn, hideRetryBtn, loadingPage } from './ui-util.js';
 
+/* *********************************************** SET CDN BASE *********************************************** */
+
+const CDN_BASE = '/assets/';
+
 /* ********************************************** HELPER FUNCTIONS **********************************************
 
     > Helper functions used in INIT to fetch & store protected data
@@ -34,11 +38,11 @@ async function fetchManifest(path) {
 
 // FETCH ALBUM & ARTIST DATA:
 async function fetchAlbum(album = '') {
-    return await fetchManifest(`/assets/songs${album ? '/' + album : ''}/info.json`);
+    return await fetchManifest(`${CDN_BASE}/songs${album ? '/' + album : ''}/info.json`);
 }
 
 async function fetchArtist() {
-    return await fetchManifest('/assets/artists/info.json');
+    return await fetchManifest(`${CDN_BASE}/artists/info.json`);
 }
 
 /* ***************************************** FETCH & STORE PROTECTED DATA *****************************************
@@ -47,7 +51,7 @@ async function fetchArtist() {
 */
 
 // RETURN: ORGANIZED DATA FOR USAGE
-const [CDN_BASE, songs, albums, artists, keyMap, idxMap] = await (
+const [songs, albums, artists, keyMap, idxMap] = await (
     async function initApp() {
         // Fetch data
         const keyMap = [], idxMap = [], albums = await fetchAlbum(), artists = await fetchArtist();
@@ -72,7 +76,7 @@ const [CDN_BASE, songs, albums, artists, keyMap, idxMap] = await (
             }
             return songDesc;
         })();
-        return ['/assets/', songs, albums, artists, keyMap, idxMap];
+        return [songs, albums, artists, keyMap, idxMap];
     })();
 
 console.log('Initialized SoundScript 🎧');
