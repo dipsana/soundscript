@@ -1,6 +1,6 @@
 /*  INITIALIZE APP: Import & Export getters from organized data in O(n) time, creates maps inside for O(1) traversal */
 
-import { showRetryBtn, hideRetryBtn, loadingPage } from '/js/ui-util.js';
+import { showRetryBtn, hideRetryBtn, loadingPage } from '/soundscript/js/ui-util.js';
 
 /* ********************************************** HELPER FUNCTIONS **********************************************
 
@@ -72,7 +72,7 @@ const [CDN_BASE, songs, albums, artists, keyMap, idxMap] = await (
             }
             return songDesc;
         })();
-        return ['https://raw.githubusercontent.com/dipsana/soundscript-cdn/main/', songs, albums, artists, keyMap, idxMap];
+        return ['/assets/', songs, albums, artists, keyMap, idxMap];
     })();
 
 console.log('Initialized SoundScript 🎧');

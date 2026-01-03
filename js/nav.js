@@ -5,9 +5,9 @@
     # (show, CONT_ID): travel to different pages on btns click (show-all, browse, home) based on container ids (trendSongs, home, etc)
 */
 
-import { NAV } from '/js/event-emitter.js';
-import { genAlbumSect, genArtistSect, genSongSect } from '/js/gen-util.js';
-import { hide, loadingPage, show } from '/js/ui-util.js';
+import { NAV } from '/soundscript/js/event-emitter.js';
+import { genAlbumSect, genArtistSect, genSongSect } from '/soundscript/js/gen-util.js';
+import { hide, loadingPage, show } from '/soundscript/js/ui-util.js';
 
 /* ******************************** RESPONSIVENESS ******************************** */
 

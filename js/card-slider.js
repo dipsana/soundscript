@@ -1,6 +1,6 @@
 /* CARD SLIDER: Heart of the card sliders. Adds responsive & smooth card slider behavior. */
 
-import { } from '/js/gen-main.js';
+import { } from '/soundscript/js/gen-main.js';
 
 /* ********************************************** INIT **********************************************
 

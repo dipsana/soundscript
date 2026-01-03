@@ -2,8 +2,8 @@
                 Currently, only song title searching is supported.
 */
 
-import { hide, show } from '/js/ui-util.js';
-import { SONG } from '/js/event-emitter.js';
+import { hide, show } from '/soundscript/js/ui-util.js';
+import { SONG } from '/soundscript/js/event-emitter.js';
 
 /* ************************************************* INIT *************************************************
 

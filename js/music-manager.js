@@ -1,8 +1,8 @@
 /* MUSIC MANAGER: Syncs & stores music stats (like, dislike, plays) in browser local cache. It fully handles music related controls. */
 
-import { SONG } from '/js/event-emitter.js';
-import { CDN_BASE, getId, getKey, getKeyRange, songArtist, songImg, songsLen, songTitle, songType } from '/js/init.js';
-import { hide, loadingPage, show } from '/js/ui-util.js';
+import { SONG } from '/soundscript/js/event-emitter.js';
+import { CDN_BASE, getId, getKey, getKeyRange, songArtist, songImg, songsLen, songTitle, songType } from '/soundscript/js/init.js';
+import { hide, loadingPage, show } from '/soundscript/js/ui-util.js';
 
 /* ************************************* INIT: DATA ************************************************
 
