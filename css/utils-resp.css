@@ -1,0 +1,47 @@
+/* UTILITIES RESPONSIVENESS: Adjusts different sections of the app utilities for different devices */
+
+/* ***************************SCREENS THAT CAN HOVER**************************** */
+
+@media (hover: hover) {
+    /* Buttons */
+    .plus-btn:hover {
+        filter: invert(1);
+        background-color: #e0e0e0;
+    }
+    
+    .icon-btn:hover {
+        background-color: #272727;
+        transform: scale(1.03);
+    }
+}
+
+/* **************************SCREENS THAT CAN'T HOVER*************************** */
+
+@media (hover: none) {
+    /* Buttons */
+    .plus-btn:active {
+        filter: invert(1);
+        background-color: #e0e0e0;
+    }
+    
+    .icon-btn:active {
+        background-color: #272727;
+        transform: scale(1.03);
+    }
+}
+
+/* **********************TABLET PORTRAIT/MOBILE SCREENS************************* */
+
+@media (max-width: 768px) {
+    .icon, .icon-btn {
+        font-size: x-large;
+    }
+}
+
+/* ******************************MOBILE SCREENS********************************* */
+
+@media (max-width: 535px) {
+    .w-mini-controls {
+        position: inherit;
+    }
+}
