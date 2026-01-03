@@ -301,7 +301,7 @@ body>main>section {
     opacity: 0;
     border-radius: 50%;
     pointer-events: auto;
-    background: url(/assets/icons/card-play.svg);
+    background: url(../assets/icons/card-play.svg);
     background-repeat: no-repeat;
     transition: opacity 0.2s ease, background 0.2s ease;
     --color-myst-glow-1: rgba(29, 185, 84, 0.8);
@@ -309,7 +309,7 @@ body>main>section {
 }
 
 #card-pause {
-    background: url(/assets/icons/card-pause.svg);
+    background: url(../assets/icons/card-pause.svg);
     --color-myst-glow-1: rgba(164, 19, 19, 0.8);
     --color-myst-glow-2: rgba(211, 26, 26, 0.9);
 }
