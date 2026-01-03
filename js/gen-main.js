@@ -1,7 +1,7 @@
 /* GENERATOR MAIN: Use functions in gen-util.js to generate sections */
 
-import { genAlbumSect, genArtistSect, genSongSect } from '/soundscript/js/gen-util.js';
-import { loadingPage } from '/soundscript/js/ui-util.js';
+import { genAlbumSect, genArtistSect, genSongSect } from './gen-util.js';
+import { loadingPage } from './ui-util.js';
 
 // Song
 genSongSect('trendSongs', 'Trending Songs', 0, 24);

@@ -1,6 +1,6 @@
 /*  INITIALIZE APP: Import & Export getters from organized data in O(n) time, creates maps inside for O(1) traversal */
 
-import { showRetryBtn, hideRetryBtn, loadingPage } from '/soundscript/js/ui-util.js';
+import { showRetryBtn, hideRetryBtn, loadingPage } from './ui-util.js';
 
 /* ********************************************** HELPER FUNCTIONS **********************************************
 

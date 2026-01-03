@@ -11,9 +11,9 @@
 
 */
 
-import { albumDesc, albumImg, albumsLen, albumTitle, artistImg, artistsLen, artistsName, correctRange, songArtist, songImg, songTitle } from '/soundscript/js/init.js';
-import { songsListLen, statIdx } from '/soundscript/js/music-manager.js';
-import { NAV, SONG } from '/soundscript/js/event-emitter.js';
+import { albumDesc, albumImg, albumsLen, albumTitle, artistImg, artistsLen, artistsName, correctRange, songArtist, songImg, songTitle } from './init.js';
+import { songsListLen, statIdx } from './music-manager.js';
+import { NAV, SONG } from './event-emitter.js';
 
 /* ************************************** HELPER FUNCTIONS ************************************** */
 
