@@ -38,11 +38,11 @@ async function fetchManifest(path) {
 
 // FETCH ALBUM & ARTIST DATA:
 async function fetchAlbum(album = '') {
-    return await fetchManifest(`${CDN_BASE}/songs${album ? '/' + album : ''}/info.json`);
+    return await fetchManifest(`${CDN_BASE}songs${album ? '/' + album : ''}/info.json`);
 }
 
 async function fetchArtist() {
-    return await fetchManifest(`${CDN_BASE}/artists/info.json`);
+    return await fetchManifest(`${CDN_BASE}artists/info.json`);
 }
 
 /* ***************************************** FETCH & STORE PROTECTED DATA *****************************************
@@ -195,3 +195,4 @@ export function albumDesc(IDX) {
 }
 
 loadingPage();
+
