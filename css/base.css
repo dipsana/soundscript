@@ -2,7 +2,7 @@
 
 @font-face {
     font-family: 'Nato Sans';
-    src: url(/assets/font/nato-sans-regular.ttf) format(truetype);
+    src: url(/soundscript/assets/font/nato-sans-regular.ttf) format(truetype);
 }
 
 * {
@@ -103,4 +103,5 @@ button:hover {
 
 ::-webkit-scrollbar-corner {
     background: #1f1f1f;
+
 }
