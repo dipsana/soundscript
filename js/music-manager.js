@@ -2,7 +2,7 @@
 
 import { SONG } from './event-emitter.js';
 import { CDN_BASE, getId, getKey, getKeyRange, songArtist, songImg, songsLen, songTitle, songType } from './init.js';
-import { hide, loadingPage, show } from './ui-util.js';
+import { hide, show } from './ui-util.js';
 
 /* ************************************* INIT: DATA ************************************************
 
@@ -654,8 +654,11 @@ SONG.on('syncmusictiles', ({ TYPE, CONT_ID, from = 0, to = songsLen() }) => {
         seekBar = document.getElementById('seek-bar'),
         barSeeker = document.getElementById('bar-seeker');
 
-    // Store percentage of moved seek bar & Fetch responsive rect
-    let percent, rect = baseBar.getBoundingClientRect();
+    // Store percentage seek bar moved & is seeking flag
+    let percent, isSeeking;
+
+    // Fetch responsive rect
+    let rect = baseBar.getBoundingClientRect();
     const baseBarResizeObserver = new ResizeObserver(() => setTimeout(() => rect = baseBar.getBoundingClientRect(), 1020));
     baseBarResizeObserver.observe(baseBar);
 
@@ -674,7 +677,8 @@ SONG.on('syncmusictiles', ({ TYPE, CONT_ID, from = 0, to = songsLen() }) => {
         barSeeker.style.left = `calc(${percentUpdate}% - 8px)`;
     }
 
-    function cancelSeek() {
+    function cancelSeek() { // Reset flag & remove event listeners
+        isSeeking = false;
         window.removeEventListener('pointermove', updateSeekPosition);
         window.removeEventListener('pointerup', endSeek);
         window.removeEventListener('pointerleave', cancelSeek);
@@ -695,6 +699,7 @@ SONG.on('syncmusictiles', ({ TYPE, CONT_ID, from = 0, to = songsLen() }) => {
     */
     // presses on the bar
     baseBar.addEventListener('pointerdown', () => {
+        isSeeking = true;                                           // set flag
         window.addEventListener('pointermove', updateSeekPosition); // moves anywhere on screen
         window.addEventListener('pointerup', endSeek);              // is released anywhere
         window.addEventListener('pointerleave', cancelSeek);        // suddenly exits
@@ -707,6 +712,7 @@ SONG.on('syncmusictiles', ({ TYPE, CONT_ID, from = 0, to = songsLen() }) => {
     */
     // Update Seek Bar with Song
     SONG.on('timeupdate', ({ NOW, END }) => {
+        if (isSeeking) return;
         const percent = NOW / END * 100;
         seekBar.style.width = percent + '%';
         barSeeker.style.left = `calc(${percent}% - 8px)`;
@@ -789,7 +795,9 @@ SONG.on('syncmusictiles', ({ TYPE, CONT_ID, from = 0, to = songsLen() }) => {
             // OffsetX, OffsetY
             const rect = playBar.getBoundingClientRect();
             offsetX = e.clientX - rect.left;
-            offsetY = window.innerHeight - rect.height - (window.innerHeight - bottom);
+            offsetY = window.innerHeight - rect.height;
+            // (window.innerHeight - rect.height) - (window.innerHeight - bottom);
+            console.log('offset y:', offsetY, rect.height, e.clientY);
         }
     }, startDrag = (e) => {
         if (drag) {
@@ -799,7 +807,7 @@ SONG.on('syncmusictiles', ({ TYPE, CONT_ID, from = 0, to = songsLen() }) => {
                 return x > right ? right : x; // Right
             })(), translateY = (() => {
                 const y = e.clientY - offsetY;
-                return y > 0 ? 0 : y; // Bottom
+                return y < 0 ? y : 0; // Bottom
             })();
             // Transform Mini Bar
             playBar.style.transform = `translate(${translateX}px, ${translateY}px)`;
@@ -857,5 +865,4 @@ SONG.on('syncmusictiles', ({ TYPE, CONT_ID, from = 0, to = songsLen() }) => {
     });
 }
 
-loadingPage();
 console.log('Loaded Music Manager 🎶');

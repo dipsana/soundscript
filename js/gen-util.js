@@ -14,6 +14,7 @@
 import { albumDesc, albumImg, albumsLen, albumTitle, artistImg, artistsLen, artistsName, correctRange, songArtist, songImg, songTitle } from './init.js';
 import { songsListLen, statIdx } from './music-manager.js';
 import { NAV, SONG } from './event-emitter.js';
+import { hideLoadingPage, showLoadingPage } from './ui-util.js';
 
 /* ************************************** HELPER FUNCTIONS ************************************** */
 
@@ -104,10 +105,12 @@ export function genSongSect(CONT_ID, heading, from = 0, to = null) {
     })();
 
     // Gen Song Cards
+    showLoadingPage();
     for (let i = from; i < to; i++) {
         const IDX = statIdx(CONT_ID, i);
         genCard('song', CONT_ID, i, songImg(IDX), songTitle(IDX), songArtist(IDX), cont);
     }
+    hideLoadingPage();
 }
 
 // ARTIST
@@ -123,9 +126,11 @@ export function genArtistSect(CONT_ID, heading, from = 0, to = null) {
     })();
 
     // Gen Artists Cards
+    showLoadingPage();
     for (let i = from; i < to; i++) {
         genCard('artist', CONT_ID, i, artistImg(i), artistsName(i), 'Artist', cont);
     }
+    hideLoadingPage();
 }
 
 // ALBUM
@@ -141,7 +146,9 @@ export function genAlbumSect(CONT_ID, heading, from = 0, to = null) {
     })();
 
     // Gen Album Cards
+    showLoadingPage();
     for (let i = from; i < to; i++) {
         genCard('album', CONT_ID, i, albumImg(i), albumTitle(i), albumDesc(i), cont);
     }
+    hideLoadingPage();
 }

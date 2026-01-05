@@ -143,7 +143,7 @@ function addBtns(i) {
     CONTS()[i].addEventListener('touchstart', e => startX = e.touches[0].clientX);
     CONTS()[i].addEventListener('touchend', e => {
         const endX = e.changedTouches[0].clientX;
-        const diff = startX - endX;
+        const diff = startX < (window.innerWidth / 2) ? startX - endX : endX - startX;
         if (diff > 50) swipeLeft(i, prevImg, prevCap, nextImg, nextCap);
         if (diff < -50) swipeRight(i, prevImg, prevCap, nextImg, nextCap);
     });

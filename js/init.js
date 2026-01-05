@@ -1,10 +1,10 @@
 /*  INITIALIZE APP: Import & Export getters from organized data in O(n) time, creates maps inside for O(1) traversal */
 
-import { showRetryBtn, hideRetryBtn, loadingPage } from './ui-util.js';
+import { showRetryBtn, hideRetryBtn, showLoadingPage, hideLoadingPage } from './ui-util.js';
 
 /* *********************************************** SET CDN BASE *********************************************** */
 
-const CDN_BASE = 'https://raw.githubusercontent.com/dipsana/soundscript-cdn/main/';
+const CDN_BASE = '/assets/';
 
 /* ********************************************** HELPER FUNCTIONS **********************************************
 
@@ -20,6 +20,7 @@ const CDN_BASE = 'https://raw.githubusercontent.com/dipsana/soundscript-cdn/main
 // EXTRACT DATA FROM PATH
 async function fetchManifest(path) {
     try {
+        showLoadingPage();
         const response = await fetch(path);
         if (!response.ok) {
             throw new Error('HTTP Error!');
@@ -28,9 +29,11 @@ async function fetchManifest(path) {
         if (data.ok || data.success || data.status === 'success') {
             hideRetryBtn();
         }
+        hideLoadingPage();
         return data;
     } catch (err) {
         console.error('Unable to fetch Manifest! Error: ', err);
+        hideLoadingPage();
         showRetryBtn(path);
         return null;
     }
@@ -193,7 +196,3 @@ export function albumTitle(IDX) {
 export function albumDesc(IDX) {
     return albums[IDX].desc;
 }
-
-loadingPage();
-
-

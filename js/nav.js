@@ -7,12 +7,9 @@
 
 import { NAV } from './event-emitter.js';
 import { genAlbumSect, genArtistSect, genSongSect } from './gen-util.js';
-import { hide, loadingPage, show } from './ui-util.js';
+import { hideSect, showSect } from './ui-util.js';
 
 /* ******************************** RESPONSIVENESS ******************************** */
-
-// HIDE INITIAL LIBRARY BAR FOR TABLETS & MOBILES
-if (window.innerWidth < 1025) hamburger.checked = true;
 
 window.addEventListener('resize', () => {
     const homeBtn = document.getElementById('home-btn'), hamburger = document.getElementById('hamburger'), melody = document.getElementById('melody');
@@ -66,8 +63,8 @@ window.dispatchEvent(new Event('resize'));
 
 // HIDE SLIDER BTNS
 function hideSliderBtns(contMain) {
-    hide(contMain.querySelector('.prevBtN'));
-    hide(contMain.querySelector('.nextBtN'));
+    hideSect(contMain.querySelector('.prevBtN'));
+    hideSect(contMain.querySelector('.nextBtN'));
 }
 
 // HIDE/SHOW CARD CONTAINERS:
@@ -77,20 +74,20 @@ const [hideConts, showConts] = (() => {
         if (except) {
             conts.forEach(cont => {
                 if (cont.id === except.id) {
-                    show(cont);
+                    showSect(cont);
                     cont.querySelector('main').classList.add('flex-wrap');
-                } else hide(cont);
+                } else hideSect(cont);
             });
-        } else conts.forEach(cont => hide(cont));
+        } else conts.forEach(cont => hideSect(cont));
     },
     () => {
         conts.forEach(cont => {
-            show(cont.querySelector('header button'));
+            showSect(cont.querySelector('header button'));
             const main = cont.querySelector('main');
             main.classList.remove('flex-wrap');
-            show(main.querySelector('.prevBtN'));
-            show(main.querySelector('.nextBtN'));
-            show(cont);
+            showSect(main.querySelector('.prevBtN'));
+            showSect(main.querySelector('.nextBtN'));
+            showSect(cont);
         });
     }];
 })();
@@ -103,7 +100,7 @@ const respondToURLChange = (CONT_ID => {
     if (cont) {
         // Hide sliders, btns & inactive content
         hideSliderBtns(cont.querySelector('main'));
-        hide(cont.querySelector('header button'));
+        hideSect(cont.querySelector('header button'));
         hideConts(cont);
 
         // Generate rest cards if not loaded
@@ -129,11 +126,11 @@ const respondToURLChange = (CONT_ID => {
     const hamburger = document.getElementById('hamburger'), label = document.querySelector('label[for="hamburger"]');
     hamburger.addEventListener('change', () => {
         if (hamburger.checked) {
-            label.title = 'Hide Library';
-            label.ariaLabel = 'Hide Library';
-        } else {
             label.title = 'Show Library';
             label.ariaLabel = 'Show Library';
+        } else {
+            label.title = 'Hide Library';
+            label.ariaLabel = 'Hide Library';
         }
     });
 }
@@ -156,14 +153,12 @@ NAV.on('show', CONT_ID => {
 
     // Load requested page
     respondToURLChange(CONT_ID);
-    loadingPage();
 });
 
 // RESPOND TO URL CHANGES
 window.addEventListener('popstate', () => {
     const urlParams = new URLSearchParams(window.location.search);
     respondToURLChange(urlParams.get('showId'));
-    loadingPage();
 });
 
 console.log('Website Mapped! 🗺️');
