@@ -1,7 +1,7 @@
 /* UI UTILITIES: Exports UI utility functions
 
     # show/hideRetryBtn: Display retry screen if unable to fetch data; Retry btn retries to fetch data if clicked
-    # loadingPage: Show & Hide Loading Page when DOM is ready (≈60%)
+    # showLoadingPage, hideLoadingPage: show/hide loading page
     # hide: Hide element with opacity transitions & display none property altogether
     # show: Display hidden element with opacity transitions & display none property altogether
 */
@@ -43,38 +43,48 @@ export function hideRetryBtn() {
     document.body.querySelector('#melody > main').style.display = 'block'; // Show: Loaded Main Content
 }
 
-// LOADING PAGE
-export function loadingPage() {
-    // Helper functions:
-    function showLoadingPage() {
-        // Gen:
-        const cards = document.createElement('div');
-        cards.classList.add('loadCardS');
-        for (let i = 0; i < 8; i++) { // 8 Load Cards &
-            const card = document.createElement('div');
-            card.classList.add('loadCarD');
-            // Append 3 Mini Cards in each of them
-            for (let j = 0; j < 3; j++) {
-                card.append(document.createElement('div'));
-            }
-            cards.append(card);
+// LOADING PAGE:
+export function showLoadingPage() {
+    // Gen:
+    const cards = document.createElement('div');
+    cards.classList.add('loadCardS');
+    for (let i = 0; i < 8; i++) { // 8 Load Cards &
+        const card = document.createElement('div');
+        card.classList.add('loadCarD');
+        // Append 3 Mini Cards in each of them
+        for (let j = 0; j < 3; j++) {
+            card.append(document.createElement('div'));
         }
-
-        // Append Load: Title & Cards to Sect
-        const title = document.createElement('div'), sect = document.createElement('section');
-        title.classList.add('loadTitlE');
-        sect.classList.add('loadAtV');
-        sect.append(title, cards);
-        document.getElementById('melody').prepend(sect); // Prepend: sect to melody
+        cards.append(card);
     }
 
-    function hideLoadingPage() {
-        document.getElementById('melody').querySelector('.loadAtV')?.remove();
-    }
+    // Append Load: Title & Cards to Sect
+    const title = document.createElement('div'), sect = document.createElement('section');
+    title.classList.add('loadTitlE');
+    sect.classList.add('loadAtV');
+    sect.append(title, cards);
+    document.getElementById('melody').prepend(sect); // Prepend: sect to melody
+}
 
-    // Main:
-    showLoadingPage();
-    document.addEventListener('DOMContentLoaded', hideLoadingPage());
+export function hideLoadingPage() {
+    document.getElementById('melody').querySelector('.loadAtV')?.remove();
+}
+
+// SHOW/HIDE SECTIONS:
+export function hideSect(elem) {
+    try {
+        elem.classList.add('display-none');
+    } catch (err) {
+        console.log('Failed to hide:', elem, err);
+    }
+}
+
+export function showSect(elem) {
+    try {
+        elem.classList.remove('display-none');
+    } catch (err) {
+        console.log('Failed to show:', elem, err);
+    }
 }
 
 // DISPLAY NONE WITH OPACITY TRANSITIONS:
@@ -95,7 +105,7 @@ export function show(elem) {
         elem.classList.add('transition-opacity', 'opacity-none');
         elem.classList.remove('display-none');
         elem.classList.add('opacity-1');
-        setTimeout(() => elem.classList.remove('transition-opacity', 'display-none', 'opacity-none', 'opacity-1'), 400);
+        setTimeout(() => elem.classList.remove('transition-opacity', 'display-none', 'opacity-none', 'opacity-1'), 500);
     } catch (err) {
         console.log('Failed to show:', elem, err);
     }

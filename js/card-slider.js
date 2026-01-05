@@ -1,5 +1,6 @@
 /* CARD SLIDER: Heart of the card sliders. Adds responsive & smooth card slider behavior. */
 
+import { show, hide } from './ui-util.js';
 import { } from './gen-main.js';
 
 /* ********************************************** INIT **********************************************
@@ -37,6 +38,9 @@ const [updateMetrics, CONTS, TOTAL_CARDS, CARD_WIDTH, VISIBLE_CARDS, HIDDEN_CARD
 // STORE: SLIDER TRANSLATED WIDTH, SLIDER INDICES
 const slide = [], prevIdx = [], nextIdx = [];
 
+// GET: MELODY MAIN
+const melodyMain = document.querySelector('#melody > main');
+
 /* ******************************************** UTILITIES ******************************************** */
 
 // CALCULATE WIDTH TO BE TRANSLATED:
@@ -70,9 +74,20 @@ function setSliderIndices(i, prevImg, prevCap, nextImg, nextCap) {
 
 // IMAGE SLIDER FUNCTIONS:
 function swipeLeft(i, prevImg, prevCap, nextImg, nextCap) {
-    // Modify Slide when prevIdx is 1 or > 1
-    slide[i] = (prevIdx[i] === 1) ? -HIDDEN_CARDS(i) * CARD_WIDTH() : slide[i] + calcLeftSlide(i); // Content Snapping
-    setSliderIndices(i, prevImg, prevCap, nextImg, nextCap); // Slider Indices
+    // Modify Slide when prevIdx is 1 or > 1 (Content Snapping)
+    slide[i] = (prevIdx[i] === 1) ? -HIDDEN_CARDS(i) * CARD_WIDTH() : slide[i] + calcLeftSlide(i);
+
+    setSliderIndices(i, prevImg, prevCap, nextImg, nextCap);
+
+    // Get Show All Btn
+    const showAllBtn = melodyMain.querySelector(`.cardConT:nth-child(${i + 1}) > header > button`);
+    if (showAllBtn) {
+        if (prevIdx[i] === 1) {
+            show(showAllBtn); // slider at first position → show button
+        } else {
+            hide(showAllBtn); // slider shifted → hide button
+        }
+    }
 
     // Slide Cards
     const cards = CONTS()[i].querySelectorAll('.CarD');
@@ -82,14 +97,25 @@ function swipeLeft(i, prevImg, prevCap, nextImg, nextCap) {
 }
 
 function swipeRight(i, prevImg, prevCap, nextImg, nextCap) {
-    // Modify: Slide when nextIdx is
+    // Modify Slide when nextIdx is
     if (nextIdx[i] === 1) { // 1
         const remaining = TOTAL_CARDS(i) - HIDDEN_CARDS(i) - VISIBLE_CARDS();
         slide[i] = remaining ? slide[i] - remaining * CARD_WIDTH() : 0; // Content Snapping
     } else { // or > 1
         slide[i] -= calcRightSlide(i);
     }
-    setSliderIndices(i, prevImg, prevCap, nextImg, nextCap); // Slider Indices
+    
+    setSliderIndices(i, prevImg, prevCap, nextImg, nextCap);
+
+    // Update show-all button visibility based on slider position
+    const showAllBtn = melodyMain.querySelector(`.cardConT:nth-child(${i + 1}) > header > button`);
+    if (showAllBtn) {
+        if (prevIdx[i] === 1) {
+            show(showAllBtn);
+        } else {
+            hide(showAllBtn);
+        }
+    }
 
     // Slide Cards
     const cards = CONTS()[i].querySelectorAll('.CarD');
@@ -143,7 +169,7 @@ function addBtns(i) {
     CONTS()[i].addEventListener('touchstart', e => startX = e.touches[0].clientX);
     CONTS()[i].addEventListener('touchend', e => {
         const endX = e.changedTouches[0].clientX;
-        const diff = startX - endX;
+        const diff = startX < (window.innerWidth / 2) ? startX - endX : endX - startX;
         if (diff > 50) swipeLeft(i, prevImg, prevCap, nextImg, nextCap);
         if (diff < -50) swipeRight(i, prevImg, prevCap, nextImg, nextCap);
     });

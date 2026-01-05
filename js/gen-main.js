@@ -1,7 +1,6 @@
 /* GENERATOR MAIN: Use functions in gen-util.js to generate sections */
 
 import { genAlbumSect, genArtistSect, genSongSect } from './gen-util.js';
-import { loadingPage } from './ui-util.js';
 
 // Song
 genSongSect('trendSongs', 'Trending Songs', 0, 24);
@@ -14,5 +13,4 @@ document.getElementById('artists').querySelector('main').title = 'In Development
 
 // Albums
 genAlbumSect('albums', 'Albums', 0, 24);
-loadingPage();
 console.log('Content Loaded! 🔃');

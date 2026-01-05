@@ -80,6 +80,10 @@
     #play-bar.active {
         background-color: #00000068;
     }
+
+    #mini {
+        touch-action: none;
+    }
 }
 
 /* **************************BIG MONITORS/PCs/LAPTOPS*************************** */
