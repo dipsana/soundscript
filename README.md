@@ -2,6 +2,8 @@
 
 > A fully frontend, CDN-powered music streaming architecture built to study real-world performance, modularity, and media delivery design.
 
+[**Live Demo**](https://dipsana.github.io/soundscript/)
+
 **SoundScript** is a modular, CDN-powered client-side music streaming platform that delivers a modern experience using a **pure CDN media architecture** — no backend, no frameworks, no shortcuts.
 
 It features:
@@ -30,11 +32,22 @@ This project is an architectural learning build focused on **performance, correc
 ## 📦 Project Status
 
 * **Project Name:** SoundScript
-* **Status:** Stable (Base Release)
-* **Current Version:** v1.0.0
-* **Release Type:** Production-ready
-* **Media Delivery:** External CDN (soundscript-cdn)
+* **Status:** Stable (Production‑Ready)
+* **Current Version:** v1.0.1
+* **Release Type:** Bug‑fix & Polish
+* **Media Delivery:** External CDN (soundscript‑cdn)
 * **Architecture:** Modular Vanilla JS (no frameworks)
+
+---
+
+## 📋 Recent Updates (v1.0.1)
+
+| Date       | Version | Highlights                                                                |
+|------------|---------|---------------------------------------------------------------------------|
+| 2026‑01‑05 | v1.0.1  | Mobile drag fixes, swipe logic, loader refactor, UI polish, bug squashing |
+| 2026‑01‑04 | v1.0.0  | Initial stable production release with full CDN architecture              |
+
+*For detailed changes, see [CHANGELOG.md](CHANGELOG.md)*
 
 ---
 
@@ -145,7 +158,7 @@ Media files are stored separately:
 
 ## 🧾 Deployment Readiness
 
-SoundScript v1.0.0 is:
+SoundScript v1.0.1 is:
 
 * Path-stable
 * Cache-safe

@@ -2,19 +2,18 @@
 
 ## 📦 Project Name: SoundScript
 
-**Version:** v1.0.0
-**Status:** Stable Production Release
+**Version:** v1.0.1  
+**Status:** Stable Production Release  
 **Architecture:** Fully Client-Side, CDN-Powered
 
 ---
 
 ## 🛡️ Overview
 
-SoundScript is a **fully client-side, CDN-powered music streaming application**.
+SoundScript is a **fully client-side, CDN-powered music streaming application**.  
 It contains **no backend servers, no authentication layers, and no remote code execution paths**.
 
-All logic executes in the browser, and all media is served via a static CDN.
-
+All logic executes in the browser, and all media is served via a static CDN.  
 Because of this architecture, SoundScript is **inherently resistant to server-side attack vectors**.
 
 ---
@@ -26,15 +25,15 @@ Because of this architecture, SoundScript is **inherently resistant to server-si
 | Play counts      | LocalStorage     | Stored locally on user device |
 | Likes / Dislikes | LocalStorage     | Never transmitted externally  |
 | UI State         | LocalStorage     | Session-persistent            |
-| Audio / Images   | CDN (static)     | Read-only, cache-safe         |
+| Audio / Images   | CDN (static)     | Read‑only, cache‑safe         |
 
-No personal information, credentials, or user identifiers are collected.
+**No personal information, credentials, or user identifiers are collected.**
 
 ---
 
 ## 🌐 CDN Security
 
-SoundScript uses a **read-only static CDN** (`soundscript-cdn`) for:
+SoundScript uses a **read‑only static CDN** (`soundscript‑cdn`) for:
 
 * MP3 audio files
 * Album artwork
@@ -63,6 +62,15 @@ This eliminates risks of:
 * CSRF
 * Session hijacking
 * Account data leakage
+
+---
+
+## ⚠️ Known Security Boundaries
+
+* **LocalStorage data is not encrypted** — though it contains only non-sensitive playback stats.
+* **CDN content is public** — anyone with the CDN URL can access media files.
+* **No HTTPS enforcement** — though strongly recommended for production use.
+* **Browser extensions** could potentially interfere with or observe playback state.
 
 ---
 
@@ -101,9 +109,9 @@ If that happens, a new security policy will be issued with:
 
 ## 🏁 Final Note
 
-SoundScript v1.0.0 is a **closed-surface static client architecture** —
+SoundScript v1.0.1 is a **closed‑surface static client architecture** —  
 meaning its attack surface is intentionally minimal.
 
-Your data stays on your device.
-Your music stays on the CDN.
+Your data stays on your device.  
+Your music stays on the CDN.  
 No trackers. No accounts. No exposure.
