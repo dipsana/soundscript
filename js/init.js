@@ -4,7 +4,7 @@ import { showRetryBtn, hideRetryBtn, showLoadingPage, hideLoadingPage } from './
 
 /* *********************************************** SET CDN BASE *********************************************** */
 
-const CDN_BASE = '/assets/';
+const CDN_BASE = 'https://raw.githubusercontent.com/dipsana/soundscript-cdn/main/';
 
 /* ********************************************** HELPER FUNCTIONS **********************************************
 
@@ -195,4 +195,5 @@ export function albumTitle(IDX) {
 
 export function albumDesc(IDX) {
     return albums[IDX].desc;
+
 }
