@@ -160,13 +160,24 @@ Changing this single constant switches the application between the online CDN an
 
 ## 🚀 Running Locally
 
-Clone the repository.
+### 1. Clone the repository
 
 ```bash
 git clone https://github.com/dipsana/soundscript.git
 ```
 
-Start a local server.
+### 2. GitHub Pages Users
+
+Before running locally, **remove** the following line from `index.html`:
+
+```html
+<!-- Line 8 -->
+<base href="/soundscript/">
+```
+
+When deploying to **GitHub Pages** again, **restore** the line.
+
+### 3. Start a Local Server
 
 ```bash
 npx serve .
@@ -174,13 +185,17 @@ npx serve .
 
 Open the URL shown in the terminal.
 
-Switch
+### 4. Use Local Media (Optional)
+
+Switch:
 
 ```js
-const CDN_BASE="/assets/";
+const CDN_BASE = "/assets/";
 ```
 
-to use your local media library.
+to use your local media library instead of the CDN.
+
+⚠️ Note: You need to setup info.json and change paths inside the js code
 
 ---
 
