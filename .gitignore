@@ -1,0 +1,14 @@
+# Release notes
+/release-notes/
+
+# Local CDN repository
+/soundscript-cdn/
+
+# Local music library & art
+/assets/songs/
+
+# Local artist metadata & art
+/assets/artists/
+
+# Personal planning
+ROADMAP.md

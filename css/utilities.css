@@ -1,0 +1,193 @@
+/* UTILITIES: Quick & critical styles used by index.html & javascript modules. It follows kebab case */
+
+/* Icons */
+.icon,
+.icon-btn {
+    font-size: x-large;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Buttons */
+.plus-btn {
+    pointer-events: all;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.icon-btn {
+    padding: 0.4rem 0.4rem 0.6rem 0.4rem;
+    border-radius: 50%;
+    background-color: #1d1d1d;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+/* Flex */
+.flex {
+    display: flex;
+}
+
+.flex-col {
+    display: flex;
+    flex-direction: column;
+}
+
+.flex-wrap {
+    flex-wrap: wrap !important;
+}
+
+.self-center {
+    align-self: center;
+}
+
+.content-center {
+    place-content: center;
+}
+
+.items-center {
+    place-items: center;
+}
+
+.space-between {
+    justify-content: space-between;
+}
+
+.space-evenly {
+    justify-content: space-evenly;
+}
+
+.center {
+    place-items: center;
+    place-content: center;
+}
+
+/* Flex/Grid Gaps */
+.col-gap-2 {
+    column-gap: 0.5rem;
+}
+
+.row-gap-2 {
+    row-gap: 0.5rem;
+}
+
+/* Width */
+.w-32 {
+    width: 32px;
+}
+
+.w-mini-bar {
+    min-width: 10vw !important;
+}
+
+.w-mini-controls {
+    position: absolute;
+    bottom: 0;
+    left: 10%;
+}
+
+/* Margin */
+.m-auto {
+    margin: auto;
+}
+
+/* Padding */
+.p-5 {
+    padding: 1.25rem;
+}
+
+.p-lr-1 {
+    padding-left: 0.25rem;
+    padding-right: 0.25rem;
+}
+
+.p-tlr-4 {
+    padding: 1rem 1rem 0rem 1rem;
+}
+
+/* Border Radius */
+.rounded {
+    border-radius: 8px;
+}
+
+.rounded-full {
+    border-radius: 50% !important;
+}
+
+/* Text */
+.bold {
+    font-weight: bold;
+    font-size: medium;
+}
+
+/* Cursor */
+.pointer {
+    cursor: pointer;
+}
+
+.grabbing {
+    cursor: grabbing;
+}
+
+.cursor-def {
+    cursor: default;
+}
+
+/* Outline */
+.outline-red {
+    --color-outline: red !important;
+}
+
+/* Overflow */
+.overflow {
+    overflow: auto;
+}
+
+/* Separator */
+.separator {
+    width: 100%;
+    margin: 1rem auto;
+    border-top: 1px solid rgba(133, 133, 133, 0.4);
+}
+
+/* Display */
+.display-none {
+    display: none !important;
+}
+
+/* Visibility */
+.hide {
+    opacity: 0 !important;
+    pointer-events: none;
+}
+
+.fade {
+    transition: opacity 1s ease;
+}
+
+/* Opacity */
+.opacity-none {
+    opacity: 0 !important;
+}
+
+.opacity-1 {
+    opacity: 1 !important;
+}
+
+/* Transition */
+.transition-opacity {
+    transition: opacity 0.4s ease;
+}
+
+/* Transform */
+.rotate-y-180 {
+    transform: rotateY(180deg);
+}
+
+.rotate-180 {
+    transform: rotate(180deg) !important;
+}
+
+/* Highlight: Background Color */
+.highlight {
+    background-color: rgb(77, 171, 226);
+}

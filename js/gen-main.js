@@ -1,0 +1,16 @@
+/* GENERATOR MAIN: Use functions in gen-util.js to generate sections */
+
+import { genAlbumSect, genArtistSect, genSongSect } from './gen-util.js';
+
+// Song
+genSongSect('trendSongs', 'Trending Songs 🩷', 0, 24);
+genSongSect('lovedSongs', 'Loved Songs 💚', 0, 24);
+genSongSect('hatedSongs', 'Hated Songs 💔', 0, 24);
+
+// Artists
+genArtistSect('artists', 'Songs by Artists', 0, 24);
+document.getElementById('artists').querySelector('main').title = 'Under Development';
+
+// Albums
+genAlbumSect('albums', 'Albums', 0, 24);
+console.log('Content Loaded! 🔃');
