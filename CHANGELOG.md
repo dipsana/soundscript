@@ -13,8 +13,7 @@ This project follows **Semantic Versioning**.
 * Configurable media source support (GitHub CDN or local assets)
 * Complete offline workflow for personal music libraries
 * Local media library setup documentation
-* CDN switching through a single `CDN_BASE` configuration
-* Playback statistics for Trending, Loved and Hated songs
+* Documentation regarding CDN switching through a single `CDN_BASE` configuration
 
 ### 🐛 Fixed
 
@@ -23,6 +22,8 @@ This project follows **Semantic Versioning**.
 * `ResizeObserver` metric synchronization for hidden containers
 * Invalid (`NaN`) slider index propagation during section transitions
 * Improved playback state synchronization across navigation
+* Playback statistics for Trending, Loved and Hated songs
+* Prevented songs stat overlapping during local new song(s)/album(s) addition
 
 ### ♻️ Improved
 
@@ -31,6 +32,7 @@ This project follows **Semantic Versioning**.
 * Clear separation between online and offline usage
 * Better application stability during dynamic UI updates
 * General code cleanup and internal synchronization improvements
+* Go to current song compatibility for GitHub pages
 
 ---
 
