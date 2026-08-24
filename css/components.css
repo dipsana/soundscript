@@ -209,6 +209,8 @@ body>main>section {
 
 #tiles .TilE figcaption h3 {
     white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
 
 /* Tiles Navigation */
@@ -237,7 +239,8 @@ body>main>section {
 }
 
 /* Melody Section */
-#melody, #color-shift {
+#melody,
+#color-shift {
     width: 75vw;
     box-sizing: border-box;
 }
