@@ -2,6 +2,7 @@
 
 import { show, hide } from './ui-util.js';
 import { } from './gen-main.js';
+import { albumsLen } from './init.js';
 
 /* ********************************************** INIT **********************************************
 
@@ -16,7 +17,7 @@ import { } from './gen-main.js';
 const [updateMetrics, CONTS, TOTAL_CARDS, CARD_WIDTH, VISIBLE_CARDS, HIDDEN_CARDS] = (() => {
     const melody = document.getElementById('melody'),
         conts = melody.querySelectorAll('.cardConT > main'),
-        totalCards = [24, 24, 24, 24, 5],
+        totalCards = [24, 24, 24, 24, albumsLen()],
         metrics = {};
 
     function updateMetrics(i = 0) {
