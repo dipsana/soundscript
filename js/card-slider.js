@@ -17,7 +17,7 @@ import { albumsLen } from './init.js';
 const [updateMetrics, CONTS, TOTAL_CARDS, CARD_WIDTH, VISIBLE_CARDS, HIDDEN_CARDS] = (() => {
     const melody = document.getElementById('melody'),
         conts = melody.querySelectorAll('.cardConT > main'),
-        totalCards = [24, 24, 24, 24, albumsLen()],
+        totalCards = [24, 24, 24, 24, albumsLen() % 24],
         metrics = {};
 
     function updateMetrics(i = 0) {
